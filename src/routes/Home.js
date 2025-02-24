@@ -5,7 +5,7 @@ const Home = () => {
   const [nweet, setNweet] = useState("");
   const getNweets = async () => {
     const dbNweets = await dbService.collection("nweets").get();
-    console.log(dbNweets);
+    dbNweets.forEach((document) => console.log(document.data()));
   };
   useEffect(() => {
     getNweets();
