@@ -1,7 +1,9 @@
 import { dbService } from "fbase";
 import { useState, useEffect } from "react";
 
-const Home = () => {
+const Home = ({ userObj }) => {
+  console.log(userObj);
+
   const [nweet, setNweet] = useState("");
   const [nweets, setNweets] = useState([]);
   const getNweets = async () => {
