@@ -11,7 +11,7 @@ const Home = ({ userObj }) => {
       const newArray = snapshot.docs.map((document) => ({
         id: document.id,
         ...document.data(),
-      }));
+      }));  
       setNweets(newArray);
     });
   }, []);
@@ -49,11 +49,10 @@ const Home = ({ userObj }) => {
       </form>
       <div>
         {nweets.map((nweet) => (
-          <Nweet
-            key={nweet.id}
-            nweetObj={nweet}
-            isOwner={nweet.creatorId === userObj.uid}
-          />
+          <Nweet key={nweet.id}
+           nweetObj={nweet} 
+           isOwner={nweet.creatorId===userObj.uid}
+           />
         ))}
       </div>
     </>
