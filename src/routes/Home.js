@@ -1,5 +1,6 @@
 import { dbService } from "fbase";
 import { useState, useEffect } from "react";
+import Nweet from "components/Nweet";
 
 const Home = ({ userObj }) => {
   const [nweet, setNweet] = useState("");
@@ -10,7 +11,7 @@ const Home = ({ userObj }) => {
       const newArray = snapshot.docs.map((document) => ({
         id: document.id,
         ...document.data(),
-      }));
+      }));  
       setNweets(newArray);
     });
   }, []);
@@ -48,7 +49,7 @@ const Home = ({ userObj }) => {
       </form>
       <div>
         {nweets.map((nweet) => (
-          
+          <Nweet key={nweet.id} nweetObj={nweet} />
         ))}
       </div>
     </>
